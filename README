@@ -1,0 +1,21 @@
+This python script synchronizes two folders: source and replica. The program maintains a full, identical copy of destination folder at replica folder.
+- Synchronization is one-way: after the synchronization content of the replica folder is modified to exactly match content of the source folder
+- Synchronization is performed periodically;
+- File creation/copying/removal operations are logged to a file and to the console output
+- Source and destination folder paths, synchronization interval and log file path are provided using the command line arguments.
+
+- How to run the program 
+
+python replicate.py <source_folder> <destination_folder> <interval_in_sec> <log_file_path>
+
+The program is tested on MAC/OS but it should be able to run on linux and Windows OS's also. Because the paths have been joined with proper os library method. Therefore whichever OS you're using please give the path according to your OS notation either with "/" Linux or "\" Windows
+
+Interval should be given in seconds 
+
+An example for the calling of the program:
+
+python replicate.py "/Users/ulkukijasev/python_assig/AA/" "/Users/ulkukijasev/python_assig/CC/" 10 "/Users/ulkukijasev/python_assig/"
+
+For symbolic links program operates with parameter follow_symlinks = True, therefore the files or folders where the symbolic link points to is copied to destination exactly. The hard links is copied exactly to destination also.
+
+
